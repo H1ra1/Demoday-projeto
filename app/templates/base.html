@@ -9,6 +9,22 @@
     <link rel="stylesheet" href="{% static 'main.css' %}">
 </head>
 <body>
-    {% block conteudo %} {% endblock %}
+    <header>
+        <div class="logo"></div>
+        <nav>
+            <ul>
+                <a href="#"><li>Home</li></a>
+                <a href="#"><li>Sobre</li></a>
+            </ul>
+            <div class="buttons">
+                <a href="#"><div class="btn">Login</div></a>
+                <a href="#"><div class="btn">Cadastrar</div></a>
+            </div>
+        </nav>
+    </header>
+    <div class="content">
+        {% block conteudo %} {% endblock %}
+    </div>
+    <footer></footer>
 </body>
 </html>
