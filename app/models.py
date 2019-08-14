@@ -8,7 +8,7 @@ class Cadastro(models.Model):
     email = models.EmailField(max_length=255, default='')
     celular = models.CharField(max_length=14, default='')
     senha = models.CharField(max_length=10, default='')
-    #foto = models.ImageField(upload_to='')
+
 
     def __str__(self):
         return self.nome
