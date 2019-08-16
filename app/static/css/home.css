@@ -1,93 +1,110 @@
-* {
+body{
+    background-color:#FF7969;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
     font-family: Arial, Helvetica, sans-serif;
 }
-
-body {
-    height: 100vh;
-    display: grid;
-    grid-template-rows: 80px 1fr 120px;
-}
-
-header {
-    background: #e0434e;
-    height: 80px;
+/* apenas a parte do logo e nome do site */
+nav{
+    background-color: #B32412;
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 0 180px;
-    box-shadow: 2px 0 2px 0px rgba(0, 0, 0, 0.6);
-}
-
-header .logo {
-    width: 32px;
-    height: 32px;
-    background: purple;
-}
-
-header nav {
-    display: flex;
-    align-items: center;
-}
-
-header nav ul {
-    list-style: none;
-    display: flex;
-}
-
-header nav ul a{
-    text-decoration: none;
-    color: #FFF;
-    font-size: 1.3em;
-    margin: 0 10px;
-    padding: 30px 0;
-    transition: all 0.3s ease-in-out;
-}
-
-header nav ul a:hover {
-    transform: translateY(-1px);
-    border-bottom: 1px solid #f52736;
-}
-
-header nav ul li {
-    padding: 0 20px;
-}
-
-header nav .buttons {
-    display: flex;
-    align-items: center;
-   margin-left: 30px;
-}
-header nav .buttons a {
-    text-decoration: none;
-    color: #FFF;
-}
-
-header nav .buttons a .btn {
-    width: 120px;
-    height: 40px;
+    justify-content: space-around;
+    height: 100px;
+    width: 220vh;
     padding: 10px;
-    background: #f52736;
-    border-radius: 4px;
+}
+.logoSite{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    height: 100px;
+    width: 100%;
+}
+nav .logoImg a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    width: 10%;
+    text-decoration:none;
+    margin-left: 60px;
+}
+
+/* logo do site */
+nav img{ 
+    height: auto;
+    width: 50px;
+}
+
+/* título */
+nav h1{
     text-align: center;
-    margin-left: 10px;
-    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
-    transition: all 0.3s ease-in-out;
+    font-family: 'Niconne', cursive;
+    color: white;
+    font-size: 35px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
-header nav .buttons a .btn:hover {
-    box-shadow: 0 0 3px 0 rgba(0, 0, 0, 0.8);
+/* links de receita e saiba mais */
+
+.divLinks{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.content {
-    padding: 20px;
-    background: #eee;
+.divLinks a{
+    text-decoration:none;
+    text-align: center;
+    font-family: 'Sanchez', serif;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+    margin-left: 35px;
 }
 
-footer {
-    background:#e0434e;
-    height: 120px;
-    box-shadow: -2px 0 2px 0 rgba(0, 0, 0, 0.6);
+/* login e cadastro */
+
+.loginCadastro{
+    justify-content: space-between;
+    display: flex;
+    align-items: center;
+    
+}
+
+.loginCadastro a{
+    text-decoration:none;
+    text-align: center;
+    font-family: 'Sanchez', serif;
+    color: white;
+    font-size: 30px;
+    cursor: pointer;
+}
+.loginCadastro span{
+    text-decoration: none;
+    font-family: 'Sanchez', serif;
+    color: white;
+    font-size: 20pt;
+}
+
+/* imagem de fundo do site */
+
+header{
+    background-image: url("../img/background.jpg!d");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    position: relative;
+}
+
+footer{
+    
 }
