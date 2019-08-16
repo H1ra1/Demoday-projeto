@@ -11,8 +11,19 @@
     <title>Receitas</title>
 </head>
 <body>
-        {% block content %} 
-        {% endblock %}
+    {% block content %}
+    <main id="igredientes">
+        <h2>Coloque seus igredientes</h2>
+        {% if msg %}
+        <p>{{ msg }}</p>
+        {% endif %}        
+        <form method="POST">
+            {% csrf_token %}
+            {{ form }}
+            <button type="submit">Pesquisar</button>
+        </form>
+    </main>
+    {% endblock %}  
     
 </body>
 </html>
