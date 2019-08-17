@@ -28,4 +28,8 @@ urlpatterns = [
     path('login/', views.do_login),
     path('logout/', views.do_logout),
     path('painel/', views.painel),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+    path('cadastrar-receita/', views.painel_cadastrar_receita),
+]
+
+if settings.DEBUG: # new
+    urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
