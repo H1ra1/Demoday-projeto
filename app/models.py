@@ -1,13 +1,70 @@
 from django.db import models
+from django.core import validators
+from django.contrib.auth.models import (PermissionsMixin, AbstractBaseUser,
+    UserManager)
+import re
 
-# Create your models here.
+class User(AbstractBaseUser, PermissionsMixin):
+    username = models.CharField(
+        max_length = 255,
+        unique = True,
+        validators = [validators.RegexValidator(re.compile('^[\w.@+-]+$'),
+        'O nome de usuário só pode conter letras e digitos.',
+        'invalid',
+        )],
+        verbose_name = 'Nome de usuário',
+    )
 
-class Cadastro(models.Model):
-    nome_completo = models.CharField(max_length=100, default='')
-    nome_usuario = models.CharField(max_length=20, default='')
-    email = models.EmailField(max_length=255, default='')
-    celular = models.CharField(max_length=14, default='')
-    senha = models.CharField(max_length=10, default='')
+    nome_completo = models.CharField(
+        max_length = 255,
+        verbose_name = 'Nome completo',
+        blank = True,
+    )
+
+    email = models.EmailField(
+        max_length = 255,
+        unique = True,
+        verbose_name = 'E-mail',
+    )
+
+    foto_usuario = models.ImageField(
+        upload_to = 'users_photos/',
+        blank = True,
+        verbose_name = 'Foto do Usuário'
+    )
+
+    is_active = models.BooleanField(
+        default = True,
+        blank = True,
+        verbose_name = 'Ativo',
+    )
+
+    is_staff = models.BooleanField(
+        default = False,
+        blank = True,
+        verbose_name = 'Staff',
+    )
+
+    date_joined = models.DateTimeField(
+        auto_now_add = True,
+        verbose_name = 'Data de entrada',
+    )
+
+    objects = UserManager()
+
+    USERNAME_FIELD = 'username'
+    REQUIRED_FIELDS = ['email']
 
     def __str__(self):
-        return self.nome_completo
+        return self.username
+
+    def get_short_name(self):
+        return self.username
+
+    def get_full_name(self):
+        return str(self)
+
+    class Meta:
+        verbose_name = 'Usuário'
+        verbose_name_plural = 'Usuários'
+
