@@ -2,7 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from app.forms import RegisterForm
 
 def home(request):
@@ -23,7 +23,7 @@ def cadastro(request):
             )
             login(request, user)
             print(user.foto_usuario)
-            return render(request, 'home.html')
+            return render(request, 'login.html')
     else:
         form = RegisterForm()
 
@@ -39,8 +39,16 @@ def do_login(request):
             user = form.get_user()
             login(request, user)
             
-            return render(request, 'home.html')
+            return render(request, 'painel.html')
     else:
         form = AuthenticationForm()
 
     return render(request, 'login.html', {'form': form})
+
+def do_logout(request):
+    logout(request)
+    return render(request, 'home.html')
+
+@login_required
+def painel(request):
+    return render(request, 'painel.html')
