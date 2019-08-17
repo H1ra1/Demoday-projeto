@@ -114,6 +114,8 @@ footer {
     border-radius: 4px;
     transition: all 0.1s ease-in-out;
     position: relative;
+    display: flex;
+    flex-direction: column;
 }
 
 .bloco:hover {
@@ -144,6 +146,7 @@ footer {
     color: #f52736;
     font-weight: bold;
     border-bottom: 1px solid #f52736;
+    text-transform: uppercase;
 }
 
 .bloco .infos p:nth-child(2) {
@@ -173,6 +176,14 @@ footer {
     width: 22px;
     height: 22px;
     background: red;
+}
+
+.bloco .by {
+    color: #333;
+    font-weight: bold;
+    padding: 10px;
+    align-self: flex-start;
+    justify-self: center;
 }
 
 /* CADASTRO */
@@ -262,4 +273,59 @@ footer {
 @keyframes teste {
     0% {transform: scaleY(0.1)}
     100% {transform: scaleY((1))}
+}
+
+/* CADASTRAR RECEITA */
+
+.form-box .cadastrar-title {
+    color: #333;
+    background: #EEE;
+    padding: 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.form-box textarea {
+    min-width: 20vw;
+    max-width: 20vw;
+    max-height: 300px;
+    width: 20vw;
+    height: 100px;
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+}
+
+.form-box select {
+    padding: 10px;
+    border-radius: 6px;
+    border: none;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    outline: none;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+}
+
+.form-box select option {
+    color: #333;
+}
+
+.form-box select option:hover {
+    background: #e0434e;
+}
+
+
+/* PAINEL */
+
+.painel {
+    border: 2px solid #e0434e66;
+    border-radius: 4px;
+    box-shadow: 0 0 2px 0 rgba(0, 0, 0, 0.8);
+    padding: 10px;
+    height: 100%;
 }
