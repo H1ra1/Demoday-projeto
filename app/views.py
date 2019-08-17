@@ -4,12 +4,12 @@ from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from app.forms import RegisterForm
+from app.models import Receita, User
 
 def home(request):
-    teste = {
-        'x': 'teste dasdas'
-    }
-    return render(request,'home.html', teste)
+    rc = Receita.objects.all()
+    print(rc)
+    return render(request,'home.html', {'receita': rc})
 
 
 def cadastro(request):
@@ -51,4 +51,30 @@ def do_logout(request):
 
 @login_required
 def painel(request):
+
     return render(request, 'painel.html')
+    
+@login_required
+def painel_cadastrar_receita(request):
+    if request.method == 'POST':
+        try:
+            nova_receita = Receita()
+            user_id = request.POST['id']
+            print(user_id)
+            nova_receita.usuario = User.objects.get(id = user_id)
+            nova_receita.nome_receita = request.POST['nome_receita']
+            nova_receita.receita = request.POST['receita']
+            nova_receita.descricao_receita = request.POST['descricao_receita']
+            nova_receita.ingredientes = request.POST['ingredientes']
+            nova_receita.foto_receita = request.FILES['foto_receita']
+            nova_receita.prato = request.POST['prato']
+            nova_receita.tipo_prato = request.POST['tipo_prato']
+
+            nova_receita.save()
+            print(f'Nova receita cadastrada por: {nova_receita.usuario.username}')
+            return render(request, 'cadastrar_receita.html', {'msg': 'Nova receita cadastrada!'})
+        except:
+            print('Erro ao cadastrar nova receita')
+            return render(request, 'cadastrar_receita.html', {'msg': 'Erro ao cadastrar receita'})
+
+    return render(request, 'cadastrar_receita.html')
