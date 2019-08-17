@@ -44,8 +44,3 @@ def do_login(request):
         form = AuthenticationForm()
 
     return render(request, 'login.html', {'form': form})
-
-def cadastrar_receita(request):
-    return render('request', 'cadastrar_receita.html');
-
-
