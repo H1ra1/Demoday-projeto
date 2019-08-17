@@ -26,4 +26,6 @@ urlpatterns = [
     path('', views.home),
     path('cadastro/', views.cadastro),
     path('login/', views.do_login),
+    path('logout/', views.do_logout),
+    path('painel/', views.painel),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
