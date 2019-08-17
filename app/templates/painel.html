@@ -1,8 +1,12 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Sua Receita - Cadastro{% endblock %}
+{% block titulo %}Sua Receita - Painel{% endblock %}
 
 {% block conteudo %}
-    <h1>PAINEL</h1>
-    <p>{{ user.username }}</p>
+    <div class="painel">
+        <a href="/cadastrar-receita">
+            <div class="btn">Cadastrar nova receita</div>
+        </a>
+        
+    </div>
 {% endblock %}
