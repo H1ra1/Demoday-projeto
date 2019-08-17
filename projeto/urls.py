@@ -23,5 +23,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home),
     path('cadastro/', views.cadastro),
-    path('login/', views.login),
+    path('login/', views.do_login),
 ] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
