@@ -119,3 +119,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'projeto/media')
+
+
+#AUTH
+AUTH_USER_MODEL = 'app.User'
+# LOGIN_URL = '../'
+# LOGIN_REDIRECT_URL = '../'
+# LOGOUT_URL = '../logout'
