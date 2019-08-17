@@ -125,6 +125,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'projeto/media')
 
 #AUTH
 AUTH_USER_MODEL = 'app.User'
-# LOGIN_URL = '../'
-# LOGIN_REDIRECT_URL = '../'
-# LOGOUT_URL = '../logout'
+LOGIN_URL = '../'
+LOGIN_REDIRECT_URL = '../'
+LOGOUT_URL = '../logout'
