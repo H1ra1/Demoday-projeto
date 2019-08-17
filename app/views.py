@@ -1,8 +1,9 @@
 from django.shortcuts import render
-from app.forms import RegisterForm
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import AuthenticationForm
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login
+from app.forms import RegisterForm
 
 def home(request):
     teste = {
@@ -30,7 +31,21 @@ def cadastro(request):
     return render(request, 'cadastro.html', ctx)
 
 
-def login(request):
-    return render(request, 'login.html')
+def do_login(request):
+    if request.method == 'POST':
+        form = AuthenticationForm(data=request.POST)
+
+        if form.is_valid():
+            user = form.get_user()
+            login(request, user)
+            
+            return render(request, 'home.html')
+    else:
+        form = AuthenticationForm()
+
+    return render(request, 'login.html', {'form': form})
+
+def cadastrar_receita(request):
+    return render('request', 'cadastrar_receita.html');
 
 
