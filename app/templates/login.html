@@ -3,6 +3,11 @@
 {% block titulo %}Sua Receita - Login{% endblock %}
 
 {% block conteudo %}
+{% if user.is_authenticated %}
+<script>
+    window.location = "/painel"
+</script>
+{% else %}
 <div class="form-center">
         <div class="form-box">
             <form method="POST" enctype='multipart/form-data'>
@@ -12,4 +17,5 @@
             </form>
         </div>
 </div>
+{% endif %}
 {% endblock%}
